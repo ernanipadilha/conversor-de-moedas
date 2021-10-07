@@ -12,7 +12,7 @@ function Converter() {
 
   var elementoValorConvertido = document.getElementById("valorConvertido");
   var exibeValor = "O valor em Real é R$ " + parseFloat(valorConvertido).toFixed(2);
-  if (isNaN(valorConvertido)) {
+  if (isNaN(valorConvertido) || valorConvertido == 0) {
     Swal.fire({
       confirmButtonColor: '#3085d6',
       icon: 'error',
@@ -31,7 +31,15 @@ function ConverterEuro() {
 
   var elementoValorConvertido = document.getElementById("valorConvertidoEuro");
   var exibeValor = "O valor em Euro é € " + valorConvertido.toFixed(2);
-  elementoValorConvertido.innerHTML = exibeValor;
+  if (isNaN(valorConvertido) || valorConvertido == 0) {
+    Swal.fire({
+      confirmButtonColor: '#3085d6',
+      icon: 'error',
+      text: 'Por favor, preencha o valor'
+    });
+  } else {
+    elementoValorConvertido.innerHTML = exibeValor;
+  }
 
 }
 
@@ -43,8 +51,15 @@ function ConverterBit() {
 
   var elementoValorConvertido = document.getElementById("valorConvertidoBit");
   var exibeValor = "O valor em BitCoin é ₿ " + valorConvertido.toFixed(10);
-  elementoValorConvertido.innerHTML = exibeValor;
-
+  if (isNaN(valorConvertido) || valorConvertido == 0) {
+    Swal.fire({
+      confirmButtonColor: '#3085d6',
+      icon: 'error',
+      text: 'Por favor, preencha o valor'
+    });
+  } else {
+    elementoValorConvertido.innerHTML = exibeValor;
+  }
 }
 
 
